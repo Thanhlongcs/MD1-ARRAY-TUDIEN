@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Từ Điển Anh - Việt</h1>
+
+    <input  id="timkiem" onkeydown=banphim(event) name="search" placeholder="Nhập từ cần tìm"/>
+    <button onclick="search()">clickhere</button>
+    <p id="result"></p>
+
+</body>
+<script>
+    let tienganh= ["water","fire","land","wind"]
+    let tiengviet=["nuoc","lua","dat","gio"]
+    function banphim(event) {
+        if(event.keyCode==13){
+            search()
+        }
+    }
+    function search() {
+        let ichi=-1
+        let tucantim= document.getElementById("timkiem").value
+        for (let i = 0; i <tienganh.length ; i++) {
+            if(tucantim===tienganh[i]){
+                ichi=i
+            }
+        }
+        if (ichi==-1){
+            document.getElementById('result').innerHTML="nhap sai gia tri"
+        }else{
+            document.getElementById('result').innerHTML=tiengviet[ichi]
+        }
+    }
+
+</script>
+</html>
